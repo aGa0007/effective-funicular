@@ -2,46 +2,89 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>HeLLo-World!</title>
+  <title>HeLLo World</title>
   <style>
     body {
-      background: #f2f2f2;
+      background: linear-gradient(to right, #c2d2ff, #d9d9d9);
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 40px;
     }
     h1 {
-      color: #2ecc71;
-      font-size: 3em;
+      color: #2c9f42;
     }
-    p {
-      font-size: 1.2em;
+    .subtitle {
+      color: #444;
       margin-bottom: 30px;
     }
-    a.button {
-      background-color: #007bff;
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
       color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 6px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .code-box {
+      display: none;
+      margin: 20px auto;
+      max-width: 90%;
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 10px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      text-align: left;
     }
     iframe {
-      margin-top: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <h1>HeLLo WorLd! 🎉</h1>
-  <p>Bu sayfa artık stil, renk ve video içeriyor.</p>
-  <a class="button" href="https://github.com/aGa0007" target="_blank">GitHub Profilime Git</a>
 
-  <iframe width="960" height="540" 
-    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-    title="Video" frameborder="0" 
+  <h1>HeLLo-World Projesine Hoş Geldiniz 🎉</h1>
+  <p class="subtitle">📽️ Aşağıda tanıtım videosunu izleyebilirsiniz:</p>
+
+  <!-- Video -->
+  <iframe width="800" height="450" src="https://www.youtube.com/embed/Yw6u6YkTgQ4" 
+    title="hello world" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
     allowfullscreen>
   </iframe>
+
+  <!-- Kaynak Kod Butonu -->
+  <button class="button" onclick="toggleSource()">📜 Kaynak Kodunu Göster / Gizle</button>
+
+  <!-- Kaynak Kod Kutusu -->
+  <div id="sourceCode" class="code-box">
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+  &lt;head&gt;
+    &lt;title&gt;HeLLo-World&lt;/title&gt;
+    ...
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hoş geldiniz&lt;/h1&gt;
+    &lt;iframe src="https://www.youtube.com/embed/Yw6u6YkTgQ4"&gt;&lt;/iframe&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function toggleSource() {
+      const box = document.getElementById("sourceCode");
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
 </body>
 </html>
