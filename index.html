@@ -1,88 +1,82 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>HeLLo World</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeLLo-World</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     body {
-      background: linear-gradient(to right, #c2d2ff, #d9d9d9);
       font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d0dfff, #dddddd);
       text-align: center;
-      padding: 40px;
+      margin: 0;
+      padding: 20px;
     }
     h1 {
-      color: #2c9f42;
-    }
-    .subtitle {
-      color: #444;
-      margin-bottom: 30px;
-    }
-    .button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .code-box {
-      display: none;
-      margin: 20px auto;
-      max-width: 90%;
-      background: #1e1e1e;
-      color: #dcdcdc;
-      padding: 15px;
-      border-radius: 10px;
-      font-family: monospace;
-      white-space: pre-wrap;
-      overflow-x: auto;
-      text-align: left;
+      color: #28a745;
     }
     iframe {
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .toggle-button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #code {
+      display: none;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
 
   <h1>HeLLo-World Projesine Hoş Geldiniz 🎉</h1>
-  <p class="subtitle">📽️ Aşağıda tanıtım videosunu izleyebilirsiniz:</p>
+  <p>🎥 Aşağıda tanıtım videosunu izleyebilirsiniz:</p>
 
-  <!-- Video -->
-  <iframe width="800" height="450" src="https://www.youtube.com/embed/Yw6u6YkTgQ4" 
-    title="hello world" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen>
-  </iframe>
-
-  <!-- Kaynak Kod Butonu -->
-  <button class="button" onclick="toggleSource()">📜 Kaynak Kodunu Göster / Gizle</button>
-
-  <!-- Kaynak Kod Kutusu -->
-  <div id="sourceCode" class="code-box">
-<code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="tr"&gt;
-  &lt;head&gt;
-    &lt;title&gt;HeLLo-World&lt;/title&gt;
-    ...
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hoş geldiniz&lt;/h1&gt;
-    &lt;iframe src="https://www.youtube.com/embed/Yw6u6YkTgQ4"&gt;&lt;/iframe&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code>
+  <!-- Video Ortalı -->
+  <div>
+    <iframe width="720" height="405"
+            src="https://www.youtube.com/embed/Yw6u6YkTgQ4"
+            title="hello world" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
   </div>
 
-  <!-- Script -->
+  <!-- Buton Ortalı -->
+  <div class="button-container">
+    <button class="toggle-button" onclick="toggleCode()">🟧 Kaynak Kodu</button>
+  </div>
+
+  <!-- Kod Alanı -->
+  <div id="code">
+<pre><code>&lt;h1&gt;Merhaba GitHub Pages!&lt;/h1&gt;
+&lt;p&gt;Bu Sayfa TehlikelidiR.&lt;/p&gt;
+</code></pre>
+  </div>
+
   <script>
-    function toggleSource() {
-      const box = document.getElementById("sourceCode");
-      box.style.display = box.style.display === "block" ? "none" : "block";
+    function toggleCode() {
+      const code = document.getElementById("code");
+      code.style.display = code.style.display === "none" ? "block" : "none";
     }
   </script>
 
