@@ -3,82 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeLLo-World</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>aGa007</title>
+  <link rel="icon" href="unreal.png" type="image/png">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #d0dfff, #dddddd);
-      text-align: center;
+    body, html {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      font-family: 'Courier New', monospace;
     }
-    h1 {
-      color: #28a745;
+
+    canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #00ff00;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .content p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
     iframe {
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 20px #00ff00;
     }
+
     .button-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
+      margin-top: 20px;
     }
+
     .toggle-button {
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
+      background-color: #0f0;
       border: none;
-      border-radius: 6px;
+      color: black;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0f0;
     }
-    #code {
+
+    #sourceCode {
       display: none;
-      max-width: 800px;
-      margin: 20px auto;
+      margin-top: 20px;
       text-align: left;
-      background-color: #f4f4f4;
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 15px;
       border-radius: 8px;
-      font-family: monospace;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
       white-space: pre-wrap;
+      color: #0f0;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
+  <canvas id="matrix"></canvas>
+  <div class="content">
+    <h1>HeLLo-World Projesine Hoş Geldiniz 🎉</h1>
+    <p>⬇️ Aşağıda tanıtım videosunu izleyebilirsiniz:</p>
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/Yw6u6YkTgQ4" title="hello world" frameborder="0" allowfullscreen></iframe>
 
-  <h1>HeLLo-World Projesine Hoş Geldiniz 🎉</h1>
-  <p>🎥 Aşağıda tanıtım videosunu izleyebilirsiniz:</p>
+    <div class="button-container">
+      <button class="toggle-button" onclick="toggleSource()">📄 Kaynak Kodu</button>
+    </div>
 
-  <!-- Video Ortalı -->
-  <div>
-    <iframe width="720" height="405"
-            src="https://www.youtube.com/embed/Yw6u6YkTgQ4"
-            title="hello world" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-  </div>
-
-  <!-- Buton Ortalı -->
-  <div class="button-container">
-    <button class="toggle-button" onclick="toggleCode()">🟧 Kaynak Kodu</button>
-  </div>
-
-  <!-- Kod Alanı -->
-  <div id="code">
-<pre><code>&lt;h1&gt;Merhaba GitHub Pages!&lt;/h1&gt;
-&lt;p&gt;Bu Sayfa TehlikelidiR.&lt;/p&gt;
-</code></pre>
+    <div id="sourceCode">
+      &lt;h1&gt;HeLLo-World Projesi&lt;/h1&gt;<br>
+      &lt;p&gt;Bu sayfa artık senindir.&lt;/p&gt;<br>
+      &lt;!-- Dandiridandiridastana --&gt;
+    </div>
   </div>
 
   <script>
-    function toggleCode() {
-      const code = document.getElementById("code");
-      code.style.display = code.style.display === "none" ? "block" : "none";
+    // Matrix animasyonu
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const binary = "01";
+    const chars = binary.split("");
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const drops = [];
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0F0";
+      ctx.font = fontSize + "px Courier New";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+          drops[i] = 0;
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+
+    // Kaynak kodu
+    function toggleSource() {
+      const codeDiv = document.getElementById("sourceCode");
+      codeDiv.style.display = codeDiv.style.display === "none" ? "block" : "none";
     }
   </script>
-
 </body>
 </html>
