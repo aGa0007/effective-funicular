@@ -1,22 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <title>HeLLo WorLd</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #f4f4f4;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 50px;
+      padding: 50px;
+      color: #333;
     }
     h1 {
-      color: #4CAF50;
+      color: #28a745;
+      font-size: 3em;
+      animation: fadeInDown 1s ease-out;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    iframe {
+      margin-top: 30px;
+      border-radius: 12px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      animation: fadeInUp 1.2s ease-out;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>Merhaba GitHub Pages!</h1>
-  <p>Bu Sayfa Deneme Amaçlı Yapılmıştır 👑</p>
+
+  <h1>HeLLo WorLd! 🎉</h1>
+  <p>Bu sayfa artık stil, renk ve video içeriyor.</p>
+
+  <a class="btn" href="https://github.com/aga0007" target="_blank">GitHub Profilime Git</a>
+
+  <br><br>
+
+  <!-- YouTube Video -->
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/TutorialVideoID" 
+    title="YouTube video player" frameborder="0" allowfullscreen>
+  </iframe>
+
 </body>
 </html>
